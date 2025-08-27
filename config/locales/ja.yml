@@ -8,6 +8,7 @@ ja:
     attributes:
       task:
         title: タイトル
+        memo: メモ
         completed: 完了
         created_at: 作成日
   tasks:
