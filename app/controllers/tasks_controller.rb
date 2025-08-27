@@ -49,9 +49,9 @@ class TasksController < ApplicationController
   def destroy_multiple
     if params[:task_ids].present?
       Task.destroy(params[:task_ids])
-      redirect_to tasks_url, notice: "Tasks were successfully destroyed."
+      redirect_to tasks_url, notice: "破棄完了"
     else
-      redirect_to tasks_url, alert: "No tasks selected."
+      redirect_to tasks_url, alert: "タスクを選択してください"
     end
   end
 
