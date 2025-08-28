@@ -20,6 +20,8 @@ ja:
       title: 新規タスク登録
     edit:
       title: 編集
+    task:
+      complete: 完了
     back: 一覧に戻る
     show:
       title: 詳細

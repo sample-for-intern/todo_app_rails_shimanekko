@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :tasks do
-    delete :destroy_multiple, on: :collection
+    member do
+      patch :complete
+    end
   end
   root "tasks#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

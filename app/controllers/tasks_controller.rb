@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy complete ]
 
   # GET /tasks
   def index
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @task, notice:
+      redirect_to @task, notice: 
     else
       render :new, status: :unprocessable_entity
     end
@@ -45,15 +45,12 @@ class TasksController < ApplicationController
     redirect_to tasks_url, notice: 
   end
 
-  # DELETE /tasks/destroy_multiple
-  def destroy_multiple
-    if params[:task_ids].present?
-      Task.destroy(params[:task_ids])
-      redirect_to tasks_url, notice: 
-    else
-      redirect_to tasks_url, alert: 
-    end
+  def complete
+    @task.update(completed: true)
+    redirect_to tasks_url, notice: "Task was successfully completed."
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
