@@ -1,13 +1,14 @@
 ja:
   time:
     formats:
-      short: "%Y/%m/%d"
+      short: "%Y/%m/%d/%a"
   activerecord:
     models:
       task: タスク
     attributes:
       task:
         title: タイトル
+        memo: メモ
         completed: 完了
         created_at: 作成日
   tasks:

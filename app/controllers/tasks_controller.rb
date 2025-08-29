@@ -24,7 +24,7 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to @task, notice: "Task was successfully created."
+      redirect_to @task, notice:
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class TasksController < ApplicationController
   # PATCH/PUT /tasks/1
   def update
     if @task.update(task_params)
-      redirect_to @task, notice: "Task was successfully updated."
+      redirect_to @task, notice: 
     else
       render :edit, status: :unprocessable_entity
     end
@@ -44,7 +44,6 @@ class TasksController < ApplicationController
     @task.destroy
     redirect_to tasks_url, notice: 
   end
-
 
   def complete
       @task.update(completed: true)
@@ -59,6 +58,6 @@ class TasksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def task_params
-      params.require(:task).permit(:title, :completed)
+      params.require(:task).permit(:title, :memo, :completed)
     end
 end
