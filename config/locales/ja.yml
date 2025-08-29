@@ -15,11 +15,13 @@ ja:
     index:
       title: Todoリスト
       new_task: 新規タスク
-      operations: 編集
+      operations: 操作
     new:
       title: 新規タスク登録
     edit:
       title: 編集
+    complete:
+      title: 完了
     back: 一覧に戻る
     show:
       title: 詳細
