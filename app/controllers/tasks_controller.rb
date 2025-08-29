@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update destroy complete ]
 
   # GET /tasks
   def index
@@ -42,17 +42,13 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   def destroy
     @task.destroy
-    redirect_to tasks_url, notice: "Task was successfully destroyed."
+    redirect_to tasks_url, notice: 
   end
 
-  # DELETE /tasks/destroy_multiple
-  def destroy_multiple
-    if params[:task_ids].present?
-      Task.destroy(params[:task_ids])
-      redirect_to tasks_url, notice: "Tasks were successfully destroyed."
-    else
-      redirect_to tasks_url, alert: "No tasks selected."
-    end
+
+  def complete
+      @task.update(completed: true)
+      redirect_to tasks_url
   end
 
   private
